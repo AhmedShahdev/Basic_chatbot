@@ -47,5 +47,6 @@ def clear_history():
     chat_history.clear()
     return jsonify({"message": "History cleared"})
 
+
 if __name__ == '__main__':
     app.run(debug=True)
