@@ -73,7 +73,7 @@ function loadHistory() {
                 item.classList.add('history-item', msg.role);
 
                 const roleLabel = msg.role === 'user' ? '🧑 You' : '🤖 Bot';
-                const shortText = msg.text.length > 60 ? msg.text.substring(0, 60) + '...' : msg.text;
+                const shortText = msg.content.length > 60 ? msg.text.substring(0, 60) + '...' : msg.text;
 
                 item.innerHTML = `<span class="role">${roleLabel}</span><p>${shortText}</p>`;
                 historyList.appendChild(item);
@@ -82,7 +82,7 @@ function loadHistory() {
             historyList.scrollTop = historyList.scrollHeight;
         })
         .catch(() => {
-            console.error('History load nahi hui');
+            console.error('History not loaded');
         });
 }
 
