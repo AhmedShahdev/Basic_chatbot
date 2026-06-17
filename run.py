@@ -28,7 +28,7 @@ def save_db(role, content):
         with conn:
             with conn.cursor() as cur:
                 cur.execute("INSERT INTO chatdata (role, content) VALUES(%s, %s)", (role, content))
-        print("Saved {role} message to DB")
+        print(f"Saved {role} message to DB")
     except Exception as e:
         print(f"Error : {e}")
 
@@ -105,9 +105,8 @@ def get_history():
 
 @app.route('/clear', methods=['POST'])
 def clear_history():
-    chat_history.clear()
+    chat_history.clear()    
     return jsonify({"message": "History Cleared"})
 
-save_db("system", "Test message: Database is working!")
 if __name__ == '__main__':
     app.run(debug= True)
